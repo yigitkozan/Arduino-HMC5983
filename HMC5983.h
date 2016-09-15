@@ -1,10 +1,11 @@
 /*
- * HMC5983.h - library header
+ * HMC5983.cpp - library header
  *
- * simple library to test the HMC5983 sensor from Honeywell
+ * simple library for the HMC5983 sensor from Honeywell
  *
+ * (c) 2014 Korneliusz Jarzebski, www.jarzebski.pl
  * (c) 2014 David Cuartielles, Arduino LLC
- * (c) 2016 Abel Romero
+ * (c) 2016 Abel Romero, www.abelromero.com
  */
 
 #ifndef HMC5983_h
