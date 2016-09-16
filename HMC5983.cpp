@@ -12,9 +12,9 @@
 #include <Wire.h>
 
 bool HMC5983::begin(void (*ISR_callback)(), int D){
-  
+
   DEBUG = D;
-  
+
   Wire.begin();
 
   if ((fastRegister8(HMC5983_REG_IDENT_A) != 0x48)
@@ -29,7 +29,7 @@ bool HMC5983::begin(void (*ISR_callback)(), int D){
   setDataRate(HMC5983_DATARATE_220HZ);
   // Set Mode
   setMeasurementMode(HMC5983_CONTINOUS);
-  
+
   // Setup DRDY int
   if (ISR_callback != NULL) {
     pinMode(3, INPUT_PULLUP);
@@ -69,7 +69,7 @@ In other words, we are not making any compensation for the earth's north pole lo
 */
 
 void HMC5983::setRange(hmc5983_range_t range) {
-  
+
     writeRegister8(HMC5983_REG_CONFIG_B, range << 5);
 }
 
@@ -217,8 +217,8 @@ double HMC5983::read() {
   double HX = (X_MSB << 8) + X_LSB;
   double HZ = (Z_MSB << 8) + Z_LSB;
   double HY = (Y_MSB << 8) + Y_LSB;
-    
-  // convert the numbers to fit the 
+
+  // convert the numbers to fit the
   if (HX > 0x07FF) HX = 0xFFFF - HX;
   if (HZ > 0x07FF) HZ = 0xFFFF - HZ;
   if (HY > 0x07FF) HY = 0xFFFF - HY;
@@ -236,8 +236,8 @@ double HMC5983::read() {
   if (HY == 0 && HX < 0) H = 180;
   if (HY == 0 && HX > 0) H = 0;
 
-  // point to first data register
-  writeRegister8(HMC5983_WRITE, 0x03);
+  // point to first data register (from datasheet). Only for continuous-measurement mode.
+  Wire.requestFrom(HMC5983_ADDRESS, 0x03);
 
   return H;
 }
