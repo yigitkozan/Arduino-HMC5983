@@ -226,6 +226,11 @@ double HMC5983::read() {
   // declare the heading variable we'll be returning
   double H = 0;
 
+  // this is the correct way, fixed from original David's work corrected following datasheet and his own comments...
+  // I just can laugh for a while, but this is how it should be calculated. Also M_PI instead of PI, because the product
+  // will result in a better accuracy formula due to the disposition in the macro of the PI calculation...
+  //
+  // even corrected from datasheet, the 90-270 angle is a bit confusing, but the 360º are captured.
   if (HY > 0) H = 90.0 - atan(HX / HY) * 180.0 / M_PI;
   if (HY < 0) H = 270.0 - atan(HX / HY) * 180.0 / M_PI;
   if (HY == 0 && HX < 0) H = 180;
