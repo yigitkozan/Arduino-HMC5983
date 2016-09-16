@@ -18,4 +18,23 @@ About the `Arduino-HMC5883L` library I can only say, did all the job.
 It works in countinous mode and normal, and has implemented the corresponding configuration rates and gain.
 You can setup an interrupt to `DRDY` by passing an argument to `compass.begin(callback);`
 
+Here is an output of the burnt example
+
+```
+heading=26.5650560000, ms=4
+heading=26.5650560000, ms=4
+heading=26.5650560000, ms=4
+heading=25.3879090000, ms=4
+heading=26.1752890000, ms=4
+heading=26.9657170000, ms=4
+heading=25.7693330000, ms=4
+heading=26.5650560000, ms=4
+heading=25.7693330000, ms=4
+heading=25.7693330000, ms=4
+heading=25.7693330000, ms=4
+heading=25.7693330000, ms=4
+```
+
+`ms` is the time between one value read and the next.
+
 Have fun and good building!
