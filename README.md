@@ -5,7 +5,9 @@ You have all the information about this device on the datasheet
 
 * http://www51.honeywell.com/aero/common/documents/myaerospacecatalog-documents/Defense_Brochures-documents/HMC5983_3_Axis_Compass_IC.pdf
 
-This library is based on the `Arduino-HMC5883L` library for Arduino from `Github`, and a `Proof of concept Arduino library,  for the HMC5983` device.
+This library is based on two libs
+* `Arduino-HMC5883L` https://github.com/aberope/Arduino-HMC5883L
+* `Proof of concept Arduino library,  for the HMC5983` https://github.com/aberope/HMC5983
 
 Heading calculation is done correctly by following the PDF, and it's corrected from original proof-of-concepto library.
 
